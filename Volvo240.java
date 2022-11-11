@@ -6,10 +6,11 @@ public class Volvo240 extends Car{
 
     public Volvo240(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName){
         super(nrDoors, enginePower, currentSpeed, color, modelName);
+        /*
         this.setNrDoors(4);
         this.setColor(Color.black);
         this.setEnginePower(100);
-        this.setModelName("Volvo240");
+        this.setModelName("Volvo240"); */
         stopEngine();
     }
     

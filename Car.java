@@ -12,7 +12,7 @@ public abstract class Car {
         this.nrDoors = nrDoors;
         this.enginePower = enginePower;
         this.currentSpeed = currentSpeed;
-        this. color = color;
+        this.color = color;
         this.modelName = modelName;
     }
 
@@ -20,24 +20,12 @@ public abstract class Car {
         return nrDoors;
     }
 
-    public void setNrDoors(int nrDoors) {
-        this.nrDoors = nrDoors;
-    }
-
     public double getEnginePower(){
         return enginePower;
     }
 
-    public void setEnginePower(double enginePower) {
-        this.enginePower = enginePower;
-    }
-
     public double getCurrentSpeed(){
         return currentSpeed;
-    }
-
-    public void setCurrentSpeed(double currentSpeed){
-        this.currentSpeed = currentSpeed;
     }
 
     public Color getColor(){
@@ -50,10 +38,6 @@ public abstract class Car {
 
     public String getModelName() {
         return modelName;
-    }
-
-    public void setModelName(String modelName) {
-        this.modelName = modelName;
     }
 
     public void startEngine(){
