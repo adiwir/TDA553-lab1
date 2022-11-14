@@ -2,20 +2,25 @@ import java.awt.*;
 
 public class Volvo240 extends Car{
 
-    public final static double trimFactor = 1.25;
+    private final static double trimFactor = 1.25;
 
-    public Volvo240(int nrDoors, double enginePower, double currentSpeed, Color color, String modelName){
-        super(nrDoors, enginePower, currentSpeed, color, modelName);
-        /*
-        this.setNrDoors(4);
-        this.setColor(Color.black);
-        this.setEnginePower(100);
-        this.setModelName("Volvo240"); */
+    public Volvo240() {
+        super(4, 100, Color.black, "Volvo240");
         stopEngine();
     }
     
     @Override
-    public double speedFactor(){
+    protected double speedFactor() {
         return this.getEnginePower() * 0.01 * trimFactor;
+    }
+
+    @Override
+    protected void incrementSpeed(double amount) {
+	    this.setCurrentSpeed(Math.min(getCurrentSpeed() + speedFactor() * amount, this.getEnginePower()));
+    }
+
+    @Override
+    protected void decrementSpeed(double amount) {
+        this.setCurrentSpeed(Math.max(getCurrentSpeed() - speedFactor() * amount, 0));
     }
 }
