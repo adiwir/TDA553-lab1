@@ -4,22 +4,24 @@ public abstract class Car implements Movable{
     
     private int nrDoors; // Number of doors on the car
     private double enginePower; // Engine power of the car
-    private double[] currentSpeed = new double[2]; // The current speed of the car
+    private double currentSpeed; // The current speed of the car
     private double[] position = new double[2]; //The cars position
     private Color color; // Color of the car
     private String modelName; // The car model name
+    private int currentDir;
  
     public Car(int nrDoors, double enginePower, Color color, String modelName){
         this.nrDoors = nrDoors;
         this.enginePower = enginePower;
         
-        this.currentSpeed[0] = 0;
-        this.currentSpeed[1] = 0;
+        this.currentSpeed = 0;
+
         this.position[0] = 10;
         this.position[1] = 10;
         
         this.color = color;
         this.modelName = modelName;
+        this.currentDir = 1;
     }
 
     protected int getNrDoors(){
@@ -30,17 +32,12 @@ public abstract class Car implements Movable{
         return enginePower;
     }
 
-    public double[] getCurrentSpeedX() {
+    public double getCurrentSpeed() {
         return this.currentSpeed;
     } 
 
-    public double[] getCurrentSpeedY() {
-        return this.currentSpeed;
-    }
-
-    protected void setCurrentSpeed(double[] currentSpeed) {
-        this.currentSpeed[0] = currentSpeed[0];
-        this.currentSpeed[1] = currentSpeed[1];
+    protected void setCurrentSpeed(double currentSpeed) {
+        this.currentSpeed = Math.min(currentSpeed, enginePower);
     }
 
     protected Color getColor(){
@@ -56,12 +53,11 @@ public abstract class Car implements Movable{
     }
 
     public void startEngine() {
-	    currentSpeed[0] = 0.1;
+	    currentSpeed = 0.1;
     }
 
     public void stopEngine() {
-	    currentSpeed[0] = 0;
-        currentSpeed[1] = 0;
+	    currentSpeed = 0;
     }
 
     abstract double speedFactor();
@@ -72,27 +68,47 @@ public abstract class Car implements Movable{
 
     // TODO fix this method according to lab pm
     public void gas(double amount) {
-        incrementSpeed(amount);
+        if (amount <= 1 && amount >= 0) {
+            incrementSpeed(amount);
+        }
     }
 
     // TODO fix this method according to lab pm
     public void brake(double amount) {
-        decrementSpeed(amount);
+        if (amount <= 1 && amount >= 0) {
+            decrementSpeed(amount);
+        }
     }
     
     @Override
     public void move() {
-        this.xpos = this.xpos + currentSpeed;
-        this.ypos = this.ypos + currentSpeed;
+        switch (this.currentDir){
+            case 0: // Left
+                this.position[0] -= this.currentSpeed;
+            case 1: // Down
+                this.position[1] = this.currentSpeed;
+            case 2: // Right
+                this.position[0] = this.currentSpeed;
+            case 3: // Up
+                this.position[1] -= this.currentSpeed;
+        }
     }
 
     @Override
     public void turnLeft() {
-        
+        if (this.currentDir == 3) {
+            this.currentDir = 0;
+        } else {
+            this.currentDir += 1;
+        }
     }
     
     @Override
     public void turnRight() {
-        
+        if (this.currentDir == 0) {
+            this.currentDir = 3;
+        } else {
+            this.currentDir -= 1;
+        }
     }
 }
