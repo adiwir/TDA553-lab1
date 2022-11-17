@@ -1,4 +1,4 @@
-package src.set;
+package labb;
 
 import java.awt.*;
 

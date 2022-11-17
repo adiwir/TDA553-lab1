@@ -1,4 +1,4 @@
-package test.set;
+package labb;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
@@ -20,6 +20,10 @@ public class CarTest {
     // startEng
 
     // getNrDoors();
+
+    Volvo240 volvo = new Volvo240();
+
+    volvo.getNrDoors();
 
     
   }
