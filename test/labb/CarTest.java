@@ -4,27 +4,28 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class CarTest {
+
+
+  
   @Test
-  public void empty_set_should_have_size_zero() {
+  public void current_speed_should_not_exceed_engine_power() {
+    Car testVolvo = new Volvo240();
     
-    //assertTrue(true);
-    assertEquals(1, 1);
-    assertTrue(true);
+    testVolvo.setCurrentSpeed(testVolvo.getEnginePower() + 1);
+    double newSpeed = testVolvo.getCurrentSpeed();
+    assertEquals(newSpeed, testVolvo.getEnginePower(), 0.01);
   }
 
   @Test
   public void a() {
-    // Volvo240 volvo1 = new Volvo240();
-    // assertEquals(2);
+    //
+  }
 
-    // startEng
+  @Test
+  public void b() {
+    Car testVolvo = new Volvo240();
 
-    // getNrDoors();
-
-    Volvo240 volvo = new Volvo240();
-
-    volvo.getNrDoors();
-
-    
+    testVolvo.turnLeft();
+    assertEquals(2, testVolvo.getCurrentDir());
   }
 }

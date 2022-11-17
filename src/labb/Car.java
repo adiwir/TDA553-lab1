@@ -113,4 +113,8 @@ public abstract class Car implements Movable{
             this.currentDir -= 1;
         }
     }
+
+    public int getCurrentDir() {
+        return this.currentDir;
+    }
 }

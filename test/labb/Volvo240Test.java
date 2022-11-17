@@ -10,7 +10,6 @@ public class Volvo240Test{
         assertEquals(1, 1);
 
         Volvo240 a = new Volvo240();
-
-        a.getNrDoors();
+        
     }
 }
