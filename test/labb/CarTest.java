@@ -10,7 +10,16 @@ public class CarTest {
 
     testVolvo.setCurrentSpeed(testVolvo.getEnginePower() + 1);
     double newSpeed = testVolvo.getCurrentSpeed();
-    assertEquals(newSpeed, testVolvo.getEnginePower(), 0.01);
+    assertEquals(testVolvo.getEnginePower(), newSpeed, 0.01);
+  }
+
+  @Test
+  public void current_speed_should_not_go_below_zero() {
+    Car testVolvo = new Volvo240();
+
+    testVolvo.setCurrentSpeed(-1);
+    double newSpeed = testVolvo.getCurrentSpeed();
+    assertEquals(0, newSpeed, 0.01);
   }
 
   @Test

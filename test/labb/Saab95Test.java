@@ -6,7 +6,9 @@ import org.junit.Test;
 public class Saab95Test{
 
     @Test
-    public void a(){ // Test för turbo, speed factor, increment & decrement speed?
-        //
+    public void test(){ // Test för turbo, speed factor, increment & decrement speed?
+        Car testSaab = new Saab95();
+        
+        assertTrue(true);
     }
 }
