@@ -129,4 +129,10 @@ public class CarTest {
   public void while_direction_down_turn_right_should_result_in_direction_left() {
     //
   } */
+
+  @Test
+  public void a() {
+
+    assertTrue(true);
+  }
 }
