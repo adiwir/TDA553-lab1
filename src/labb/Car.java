@@ -93,13 +93,25 @@ public abstract class Car implements Movable{
         switch (this.currentDir){
             case 0: // Left
                 this.position[0] -= this.currentSpeed;
+                break;
             case 1: // Down
-                this.position[1] = this.currentSpeed;
+                this.position[1] += this.currentSpeed;
+                break;
             case 2: // Right
-                this.position[0] = this.currentSpeed;
+                this.position[0] += this.currentSpeed;
+                break;
             case 3: // Up
                 this.position[1] -= this.currentSpeed;
+                break;
         }
+    }
+
+    public double getCurrentPositionX(){
+        return this.position[0];
+    }
+
+    public double getCurrentPositionY(){
+        return this.position[1];
     }
 
     @Override
