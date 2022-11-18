@@ -23,7 +23,7 @@ public abstract class Car implements Movable{
         
         this.color = color;
         this.modelName = modelName;
-        this.currentDir = 1; // Start direction (left)
+        this.currentDir = 0; // Start direction (left)
     }
 
     protected int getNrDoors(){
@@ -122,5 +122,9 @@ public abstract class Car implements Movable{
 
     public int getCurrentDir() {
         return this.currentDir;
+    }
+
+    public void setCurrentDir(int currentDir) {
+        this.currentDir = currentDir;
     }
 }

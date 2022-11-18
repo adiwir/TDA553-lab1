@@ -1,14 +1,31 @@
 package labb;
 
 import static org.junit.Assert.*;
+
+import java.awt.Color;
+
 import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
 
 public class Volvo240Test{
 
+    /*
+    Volvo240 testVolvo;
+
+    @BeforeEach
+    void init(){
+        testVolvo = new Volvo240();
+    }*/
+
     @Test
-    public void test(){ // Test för trim, speed factor, increment & decrement speed?
-        Car testVolvo = new Volvo240();
+    public void est(){ // Test för trim, speed factor, increment & decrement speed?
         
-        assertTrue(true);
+        //testVolvo.setColor(Color.red);
+        //assertEquals(testVolvo.getColor(), Color.red);
+    }
+
+    @Test
+    public void test(){
+        //assertEquals(testVolvo.getColor(), Color.black);
     }
 }
