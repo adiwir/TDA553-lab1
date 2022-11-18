@@ -1,0 +1,29 @@
+*Explain how you chose the inheritance hierarchy in Task 1, making reference to the Open-Closed Principle.
+Subclassing allows us to create a superclass and then add specific behavior in a subclass. That means we can use the superclass to store common behavior and variables so that we don’t repeat our code. A superclass can be abstract and make us implement specific methods in the subclass. That is useful if we have a method that does the same thing but implements it differently for two different types of objects. An interface is a completely abstract class with no method implementation in it. This means we have to implement every method in the concrete class. Both can be used but we chose to use subclassing so that we were able to add the implementation to the superclass and therefore not write the implementation in both Saab and Volvo classes.
+
+In Task 1 we decided to use subclassing due to different models of cars having different functionalities, as well as sharing a bunch of common traits related to cars. All cars will be able to gas and brake in a similar way, and with subclassing we’re able to reuse these methods for all subclasses (Volvo240, Saab95, …). This means we can create methods in Car that work for all objects where the only thing we need to change is the argument we are passing to the method. Which follows the Open-Closed Principle where methods are open for modification of behavior due to different parameters but closed for modification of implementation. We can also override implemented methods in Car, as well as implement new methods in the subclasses specific for the subclass.
+
+*What visibility should you use for the different methods and variables that the classes contain? Which interface should you expose?
+
+Variables used in classes are set to private to avoid being able to access and change them everywhere. When they are required elsewhere we utilize get and set methods from the class containing them.
+
+Most methods are set to protected because they are used within sub- and superclasses. A few methods such as gas and brake are set to public to be used by the user.
+
+*Explain how you implemented each of the sanity checks in Task 4.
+Inside the gas and brake method we utilized an if-statement to verify that the input value is between 0 and 1. Otherwise it won’t call incrementSpeed() or decrementSpeed().
+        if (amount <= 1 && amount >= 0) {
+            incrementSpeed(amount);
+        }
+
+To clamp currentSpeed to between zero and enginePower we first check if currentSpeed is positive or negative, and then use either Math.min or Math.max.
+        if (currentSpeed >= 0) {
+            this.currentSpeed = Math.min(currentSpeed, enginePower);
+        }
+ 
+        else if (currentSpeed < 0) {
+            this.currentSpeed = Math.max(currentSpeed, 0);
+        }
+
+By implementing these limitations to gas(), brake() and setCurrentSpeed(), at the same time we managed to prevent gas being able to decrease speed and brake being able to increase speed.
+
+We also created tests to check that the above mentioned implementations worked as expected, as well as tests to check that gas() would in fact increase speed, and brake() decrease speed. Not vice versa.

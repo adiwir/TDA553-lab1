@@ -106,6 +106,14 @@ public abstract class Car implements Movable{
         }
     }
 
+    public double getCurrentPositionX(){
+        return this.position[0];
+    }
+
+    public double getCurrentPositionY(){
+        return this.position[1];
+    }
+
     @Override
     public void turnLeft() {
         if (this.currentDir == 3) {
