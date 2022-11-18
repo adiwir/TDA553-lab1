@@ -9,7 +9,6 @@ public class Saab95 extends Car{
     public Saab95(boolean turboOn) {
         super(2, 125, Color.red, "Saab95");
         this.turboOn = false;
-        
         stopEngine();
     }                                                                                         
     

@@ -18,7 +18,8 @@ public class Volvo240 extends Car{
 
     @Override
     protected void incrementSpeed(double amount) {
-	    this.setCurrentSpeed(Math.min(getCurrentSpeed() + speedFactor() * amount, this.getEnginePower()));
+	    this.setCurrentSpeed(Math.min(getCurrentSpeed() + speedFactor() * amount, this.getEnginePower())); ////////TODO Volvo clampar själv innan den tillkallar setcurrentspeed 
+        //kanske kan ta bort och låta det skötas i Car. för borde gälla för alla bilar, och saab har ingen clamp från mallen...
     }
 
     @Override

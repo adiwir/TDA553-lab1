@@ -11,6 +11,8 @@ public abstract class Car implements Movable{
     private Color color; // Color of the car
     private String modelName; // The car model name
     private int currentDir;
+
+
  
     public Car(int nrDoors, double enginePower, Color color, String modelName){
         this.nrDoors = nrDoors;
@@ -18,12 +20,12 @@ public abstract class Car implements Movable{
         
         this.currentSpeed = 0;
 
-        this.position[0] = 10;
-        this.position[1] = 10;
+        this.position[0] = 10; // Start position
+        this.position[1] = 10; //
         
         this.color = color;
         this.modelName = modelName;
-        this.currentDir = 1;
+        this.currentDir = 1; // Start direction (left)
     }
 
     protected int getNrDoors(){
@@ -39,7 +41,7 @@ public abstract class Car implements Movable{
     } 
 
     protected void setCurrentSpeed(double currentSpeed) {
-        this.currentSpeed = Math.min(currentSpeed, enginePower);
+        this.currentSpeed = Math.min(currentSpeed, enginePower); ///// TODO Borde även kolla så att hastigheten inte sätts mindre än 0
     }
 
     protected Color getColor(){
