@@ -1,14 +1,16 @@
 package labb;
 
+import java.util.*;
+
 public class Main {
+
     public static void main(String []args) {
-        //Saab95 saabtest = new Saab95(false);
-        
-        //System.out.println(saabtest);
-        //saab1.gas(5);
-    
+
     }
-     
 
+    public static List<Car> cars = new ArrayList<Car>();  
 
+    public static List<Car> getActiveCars() {
+        return cars;
+    }
 }

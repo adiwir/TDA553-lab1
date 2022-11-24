@@ -1,9 +1,7 @@
 package labb;
 
-import static org.junit.Assert.*;
-import javax.sound.midi.Soundbank;
-
 import org.junit.Test;
+import static org.junit.Assert.*;
 
 public class CarTest {
 

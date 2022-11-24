@@ -70,9 +70,13 @@ public abstract class Car implements Movable{
 
     abstract double speedFactor();
 
-    abstract void incrementSpeed(double amount);
+    protected void incrementSpeed(double amount) {
+        this.setCurrentSpeed(getCurrentSpeed() + speedFactor() * amount);
+    }
 
-    abstract void decrementSpeed(double amount);
+    protected void decrementSpeed(double amount) {
+        this.setCurrentSpeed(getCurrentSpeed() - speedFactor() * amount);
+    }
 
     // TODO fix this method according to lab pm
     public void gas(double amount) {
