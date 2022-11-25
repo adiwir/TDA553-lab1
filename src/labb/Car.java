@@ -110,14 +110,6 @@ public abstract class Car implements Movable{
         }
     }
 
-    public double getCurrentPositionX(){
-        return this.position[0];
-    }
-
-    public double getCurrentPositionY(){
-        return this.position[1];
-    }
-
     @Override
     public void turnLeft() {
         if (this.currentDir == 3) {
@@ -144,7 +136,21 @@ public abstract class Car implements Movable{
         this.currentDir = currentDir;
     }
 
-    public double getPositionX() {
+    public double getCurrentPositionX(){
         return this.position[0];
     }
+
+    public double getCurrentPositionY(){
+        return this.position[1];
+    }
+
+    public void setPositionX(double newPositionX) {
+        this.position[0] = newPositionX;
+    }
+
+    public void setPositionY(double newPositionY) {
+        this.position[1] = newPositionY;
+    }
+    
+    
 }

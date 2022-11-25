@@ -13,7 +13,12 @@ public class HasPlatform {
     }
 
     public void lowerPlatform() {
-        this.platformAngle -= 1;
+        if(this.platformAngle == 0) {
+            this.platformAngle = 0;
+        }
+        else {
+            this.platformAngle -= 1;
+        }
     }
 
     public int getPlatformAngle() {

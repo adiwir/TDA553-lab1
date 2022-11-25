@@ -18,7 +18,14 @@ public class ScaniaTest {
         double newSpeed = testScania.getCurrentSpeed();
 
         assertEquals(startSpeed, newSpeed, 0);
+    }
 
+    @Test
+    public void platform_should_not_go_lower_than_zero() {
+        Scania testScania = new Scania();
+
+        testScania.lowerPlatform();
+        assertTrue(testScania.getPlatformAngle() == 0);
 
     }
 }

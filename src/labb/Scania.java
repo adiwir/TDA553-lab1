@@ -4,15 +4,22 @@ import java.awt.*;
 
 public class Scania extends Car {
 
-    private HasPlatform platform;
+    private HasPlatform platform = new HasPlatform();
 
     public Scania() {
-        super(4, 100, Color.GRAY, "Scania");
+        super(4, 100, Color.GREEN, "Scania");
     }
 
     @Override
     double speedFactor() {
         return this.getEnginePower() * 0.01;
+    }
+
+    @Override
+    public void gas(double amount) {
+        if (amount <= 1 && amount >= 0 && platform.getPlatformAngle() == 0) {
+            incrementSpeed(amount);
+        }
     }
 
     public void raisePlatform() {
@@ -22,8 +29,10 @@ public class Scania extends Car {
     }
 
     public void lowerPlatform() {
-        if (platform.getPlatformAngle() != 0) {
-            platform.lowerPlatform();
-        }
+        platform.lowerPlatform();        
+    }
+
+    public int getPlatformAngle() {
+        return platform.getPlatformAngle();
     }
 }
