@@ -10,20 +10,30 @@ public abstract class Car implements Movable{
     private double[] position = new double[2]; //The cars position
     private Color color; // Color of the car
     private String modelName; // The car model name
-    private int currentDir;
- 
+    private direction dir;
+
+    public enum direction{
+        LEFT,
+        DOWN, 
+        RIGHT,
+        UP
+    }
+    
     public Car(int nrDoors, double enginePower, Color color, String modelName){
         this.nrDoors = nrDoors;
         this.enginePower = enginePower;
         
         this.currentSpeed = 0;
 
-        this.position[0] = 10; // Start position
-        this.position[1] = 10; //
+        this.position[0] = Config.CAR_START_POSITION_X;
+        this.position[1] = Config.CAR_START_POSITION_Y;
+
+        this.dir = direction.LEFT; // Start direction left
         
         this.color = color;
         this.modelName = modelName;
-        this.currentDir = 0; // Start direction (left)
+
+        direction.values();
     }
 
     protected int getNrDoors(){
@@ -44,7 +54,7 @@ public abstract class Car implements Movable{
         }
 
         else if (currentSpeed < 0) {
-            this.currentSpeed = Math.max(currentSpeed, 0);
+            this.currentSpeed = 0;
         }
     }
 
@@ -71,40 +81,38 @@ public abstract class Car implements Movable{
     abstract double speedFactor();
 
     protected void incrementSpeed(double amount) {
-        this.setCurrentSpeed(getCurrentSpeed() + speedFactor() * amount);
+        if (amount <= 1 && amount >= 0) {
+            this.setCurrentSpeed(getCurrentSpeed() + speedFactor() * amount);
+        }
     }
 
     protected void decrementSpeed(double amount) {
-        this.setCurrentSpeed(getCurrentSpeed() - speedFactor() * amount);
+        if (amount <= 1 && amount >= 0) {
+            this.setCurrentSpeed(getCurrentSpeed() - speedFactor() * amount);
+        }
     }
 
-    // TODO fix this method according to lab pm
     public void gas(double amount) {
-        if (amount <= 1 && amount >= 0) {
-            incrementSpeed(amount);
-        }
+        incrementSpeed(amount);
     }
 
-    // TODO fix this method according to lab pm
     public void brake(double amount) {
-        if (amount <= 1 && amount >= 0) {
-            decrementSpeed(amount);
-        }
+        decrementSpeed(amount);
     }
     
     @Override
     public void move() {
-        switch (this.currentDir){
-            case 0: // Left
+        switch (this.dir){
+            case LEFT:
                 this.position[0] -= this.currentSpeed;
                 break;
-            case 1: // Down
+            case DOWN:
                 this.position[1] += this.currentSpeed;
                 break;
-            case 2: // Right
+            case RIGHT:
                 this.position[0] += this.currentSpeed;
                 break;
-            case 3: // Up
+            case UP:
                 this.position[1] -= this.currentSpeed;
                 break;
         }
@@ -112,28 +120,36 @@ public abstract class Car implements Movable{
 
     @Override
     public void turnLeft() {
-        if (this.currentDir == 3) {
-            this.currentDir = 0;
+        if (this.dir == direction.LEFT) {
+            this.dir = direction.DOWN;
+        } else if (this.dir == direction.DOWN) {
+            this.dir = direction.RIGHT;
+        } else if (this.dir == direction.RIGHT) {
+            this.dir = direction.UP;
         } else {
-            this.currentDir += 1;
+            this.dir = direction.LEFT;
         }
     }
     
     @Override
     public void turnRight() {
-        if (this.currentDir == 0) {
-            this.currentDir = 3;
+        if (this.dir == direction.LEFT) {
+            this.dir = direction.UP;
+        } else if (this.dir == direction.UP) {
+            this.dir = direction.RIGHT;
+        } else if (this.dir == direction.RIGHT) {
+            this.dir = direction.DOWN;
         } else {
-            this.currentDir -= 1;
+            this.dir = direction.LEFT;
         }
     }
 
-    public int getCurrentDir() {
-        return this.currentDir;
+    public direction getCurrentDir() {
+        return this.dir;
     }
 
-    public void setCurrentDir(int currentDir) {
-        this.currentDir = currentDir;
+    public void setCurrentDir(direction dir) {
+        this.dir = dir;
     }
 
     public double getCurrentPositionX(){
@@ -144,13 +160,11 @@ public abstract class Car implements Movable{
         return this.position[1];
     }
 
-    public void setPositionX(double newPositionX) {
-        this.position[0] = newPositionX;
+    public void setPositionX(double posX) {
+        this.position[0] = posX;
     }
 
-    public void setPositionY(double newPositionY) {
-        this.position[1] = newPositionY;
+    public void setPositionY(double posY) {
+        this.position[1] = posY;
     }
-    
-    
 }

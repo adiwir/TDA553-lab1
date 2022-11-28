@@ -2,6 +2,7 @@ package labb;
 
 import java.awt.*;
 import java.util.Random;
+import java.util.List;
 
 public class CarTransporter extends Car {
 
@@ -13,8 +14,8 @@ public class CarTransporter extends Car {
 
     public CarTransporter() {
         super(2, 100, Color.BLACK, "Transporter");
-        maxCars = 8;        
-        range = 10;
+        maxCars = Config.STORAGE_MAX_CARS;        
+        range = Config.RANGE;
         storage = new HasStorage(maxCars);
     }
 
@@ -42,7 +43,7 @@ public class CarTransporter extends Car {
         }
     }
 
-    public void loadCar() { // inte ladda sig själv
+    public void loadCar() {
         if (platform.getPlatformAngle() == 0) {
             storage.loadCar(this.getCurrentPositionX(), this.getCurrentPositionY());
         }
@@ -52,5 +53,9 @@ public class CarTransporter extends Car {
         if (platform.getPlatformAngle() == 0) { 
             storage.unloadCar(this.getCurrentPositionX() + random.nextInt(range), this.getCurrentPositionY() + random.nextInt(range));
         }
+    }
+
+    public List<Car> getStorage() {
+        return storage.getLoadedCars();
     }
 }

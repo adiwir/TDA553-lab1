@@ -7,17 +7,23 @@ public class CarRepairShopTest {
 
     @Test
     public void car_close_to_repair_shop_should_be_loaded() {
-        //Car testVolvo = new Volvo240();
-        SpawnCar.addCar("Volvo240");
-        //SpawnCar.getActiveCars().get(0);
+        CarRepairShop testRepairShop = new CarRepairShop();
         
+        SpawnCar.addCar("Volvo240");
+        testRepairShop.setPositionX(Config.CAR_START_POSITION_X);
+        testRepairShop.setPositionY(Config.CAR_START_POSITION_Y);
+        testRepairShop.loadCar();
+        
+        assertEquals(testRepairShop.getStorage().size(), 1);
+    }
+
+    @Test
+    public void repair_shop_with_loaded_car_should_be_unloaded() {
         CarRepairShop testRepairShop = new CarRepairShop();
 
-        testRepairShop.setPositionX(10);
-        testRepairShop.setPositionY(10);
+        testRepairShop.getStorage().add(new Volvo240());
+        testRepairShop.unloadCar();
 
-        testRepairShop.loadCar();
-
-        assertEquals(testRepairShop.getStorage().get(0), SpawnCar.getActiveCars().get(0));
+        assertEquals(testRepairShop.getStorage().size(), 0);
     }
 }

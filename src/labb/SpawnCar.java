@@ -4,7 +4,7 @@ import java.util.*;
 
 public class SpawnCar {
     private static SpawnCar single_instance = null;
-    public static List<Car> activeCars = new ArrayList<Car>();
+    private static List<Car> activeCars = new ArrayList<Car>();
 
     private SpawnCar() {
 
@@ -31,14 +31,14 @@ public class SpawnCar {
                 Car scania = new Scania();
                 activeCars.add(scania);
                 break;
-            case "CarTransporter":
-                Car carTransporter = new CarTransporter();
-                activeCars.add(carTransporter);
-                break;
         }
     }
     
     public static List<Car> getActiveCars() {
         return activeCars;
+    }
+
+    public static void clearActiveCars() {
+        activeCars.clear();
     }
 }

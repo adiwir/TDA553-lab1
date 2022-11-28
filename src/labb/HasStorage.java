@@ -11,7 +11,7 @@ public class HasStorage {
     public HasStorage(int maxCars) {
         this.maxCars = maxCars;
         this.loadedCars = new ArrayList<Car>();
-        this.range = 10;
+        this.range = Config.RANGE;
     }
 
     public void setMaxCars(int amount) {
@@ -23,7 +23,6 @@ public class HasStorage {
     }
 
     public void loadCar(double posX, double posY) {
-        //activeCars = Main.getActiveCars();
         ArrayList<Car> activeCars = new ArrayList<>(SpawnCar.getActiveCars());
         for (Car car : activeCars) {
             if ((car.getCurrentPositionX() < posX + range) && (car.getCurrentPositionX() > posX - range)) {

@@ -17,7 +17,7 @@ public class Scania extends Car {
 
     @Override
     public void gas(double amount) {
-        if (amount <= 1 && amount >= 0 && platform.getPlatformAngle() == 0) {
+        if (platform.getPlatformAngle() == 0) {
             incrementSpeed(amount);
         }
     }

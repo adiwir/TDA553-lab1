@@ -2,6 +2,7 @@ package labb;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
+import labb.Car.direction;
 
 public class CarTest {
 
@@ -61,7 +62,6 @@ public class CarTest {
   @Test
   public void brake_should_not_increase_speed() {
     Car testVolvo = new Volvo240();
-
     double currentSpeed = testVolvo.getCurrentSpeed();
     testVolvo.brake(1);
     double newSpeed = testVolvo.getCurrentSpeed();
@@ -71,20 +71,17 @@ public class CarTest {
   @Test
   public void while_direction_left_turn_left_should_result_in_direction_down() {
     Car testVolvo = new Volvo240();
-
     testVolvo.turnLeft();
-    assertEquals(1, testVolvo.getCurrentDir());
+    assertEquals(direction.DOWN, testVolvo.getCurrentDir());
   }
 
   
   @Test
   public void while_direction_down_turn_left_should_result_in_direction_right() {
     Car testVolvo = new Volvo240();
-
-    testVolvo.setCurrentDir(1);
-
+    testVolvo.setCurrentDir(direction.DOWN);
     testVolvo.turnLeft();
-    assertEquals(2, testVolvo.getCurrentDir());
+    assertEquals(direction.RIGHT, testVolvo.getCurrentDir());
   }
 
   
@@ -92,30 +89,28 @@ public class CarTest {
   public void while_direction_right_turn_left_should_result_in_direction_up() {
     Car testVolvo = new Volvo240();
 
-    testVolvo.setCurrentDir(2);
+    testVolvo.setCurrentDir(direction.RIGHT);
 
     testVolvo.turnLeft();
-    assertEquals(3, testVolvo.getCurrentDir());
+    assertEquals(direction.UP, testVolvo.getCurrentDir());
   }
   
   @Test
   public void while_direction_up_turn_left_should_result_in_direction_left() {
     Car testVolvo = new Volvo240();
     
-    testVolvo.setCurrentDir(3);
+    testVolvo.setCurrentDir(direction.UP);
     testVolvo.turnLeft();
     
-    assertEquals(0, testVolvo.getCurrentDir());
+    assertEquals(direction.LEFT, testVolvo.getCurrentDir());
   }
   
 
   @Test
   public void while_direction_left_turn_right_should_result_in_direction_up() {
     Car testVovlo = new Volvo240();
-
     testVovlo.turnRight();
-
-    assertEquals(3, testVovlo.getCurrentDir());
+    assertEquals(direction.UP, testVovlo.getCurrentDir());
   }
 
   
@@ -123,30 +118,30 @@ public class CarTest {
   public void while_direction_up_turn_right_should_result_in_direction_right() {
     Car testSaab = new Saab95();
 
-    testSaab.setCurrentDir(3);
+    testSaab.setCurrentDir(direction.UP);
     testSaab.turnRight();
 
-    assertEquals(2, testSaab.getCurrentDir());
+    assertEquals(direction.RIGHT, testSaab.getCurrentDir());
   }
 
   @Test
   public void while_direction_right_turn_right_should_result_in_direction_down() {
     Car testSaab = new Saab95();
 
-    testSaab.setCurrentDir(2);
+    testSaab.setCurrentDir(direction.RIGHT);
     testSaab.turnRight();
 
-    assertEquals(1, testSaab.getCurrentDir());
+    assertEquals(direction.DOWN, testSaab.getCurrentDir());
   }
   
   @Test
   public void while_direction_down_turn_right_should_result_in_direction_left() {
     Car testVolvo = new Volvo240();
 
-    testVolvo.setCurrentDir(1);
+    testVolvo.setCurrentDir(direction.DOWN);
     testVolvo.turnRight();
 
-    assertEquals(0, testVolvo.getCurrentDir());
+    assertEquals(direction.LEFT, testVolvo.getCurrentDir());
   } 
 
   @Test
@@ -164,7 +159,7 @@ public class CarTest {
   public void when_moving_up_position_in_the_Yaxis_is_greater_than_ten() {
     Saab95 testSaab = new Saab95();
 
-    testSaab.setCurrentDir(3);
+    testSaab.setCurrentDir(direction.UP);
     testSaab.startEngine();
     testSaab.gas(1);
     testSaab.move();
@@ -176,7 +171,7 @@ public class CarTest {
   public void when_moving_right_position_in_the_Xaxis_is_greater_than_ten() {
     Saab95 testSaab = new Saab95();
 
-    testSaab.setCurrentDir(2);
+    testSaab.setCurrentDir(direction.RIGHT);
     testSaab.startEngine();
     testSaab.gas(1);
     testSaab.move();
@@ -188,7 +183,7 @@ public class CarTest {
   public void when_moving_down_position_in_the_Yaxis_is_not_ten() {
     Saab95 testSaab = new Saab95();
 
-    testSaab.setCurrentDir(1);
+    testSaab.setCurrentDir(direction.DOWN);
     testSaab.startEngine();
     testSaab.gas(1);
     testSaab.move();
