@@ -10,9 +10,9 @@ public abstract class Car implements Movable{
     private double[] position = new double[2]; //The cars position
     private Color color; // Color of the car
     private String modelName; // The car model name
-    private direction dir;
+    private Direction dir;
 
-    public enum direction{
+    public enum Direction{
         LEFT,
         DOWN, 
         RIGHT,
@@ -28,12 +28,12 @@ public abstract class Car implements Movable{
         this.position[0] = Config.CAR_START_POSITION_X;
         this.position[1] = Config.CAR_START_POSITION_Y;
 
-        this.dir = direction.LEFT; // Start direction left
+        this.dir = Direction.LEFT; // Start Direction left
         
         this.color = color;
         this.modelName = modelName;
 
-        direction.values();
+        Direction.values();
     }
 
     protected int getNrDoors(){
@@ -120,35 +120,35 @@ public abstract class Car implements Movable{
 
     @Override
     public void turnLeft() {
-        if (this.dir == direction.LEFT) {
-            this.dir = direction.DOWN;
-        } else if (this.dir == direction.DOWN) {
-            this.dir = direction.RIGHT;
-        } else if (this.dir == direction.RIGHT) {
-            this.dir = direction.UP;
+        if (this.dir == Direction.LEFT) {
+            this.dir = Direction.DOWN;
+        } else if (this.dir == Direction.DOWN) {
+            this.dir = Direction.RIGHT;
+        } else if (this.dir == Direction.RIGHT) {
+            this.dir = Direction.UP;
         } else {
-            this.dir = direction.LEFT;
+            this.dir = Direction.LEFT;
         }
     }
     
     @Override
     public void turnRight() {
-        if (this.dir == direction.LEFT) {
-            this.dir = direction.UP;
-        } else if (this.dir == direction.UP) {
-            this.dir = direction.RIGHT;
-        } else if (this.dir == direction.RIGHT) {
-            this.dir = direction.DOWN;
+        if (this.dir == Direction.LEFT) {
+            this.dir = Direction.UP;
+        } else if (this.dir == Direction.UP) {
+            this.dir = Direction.RIGHT;
+        } else if (this.dir == Direction.RIGHT) {
+            this.dir = Direction.DOWN;
         } else {
-            this.dir = direction.LEFT;
+            this.dir = Direction.LEFT;
         }
     }
 
-    public direction getCurrentDir() {
+    public Direction getCurrentDir() {
         return this.dir;
     }
 
-    public void setCurrentDir(direction dir) {
+    public void setCurrentDir(Direction dir) {
         this.dir = dir;
     }
 
