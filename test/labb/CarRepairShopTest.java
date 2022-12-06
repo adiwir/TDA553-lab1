@@ -7,6 +7,7 @@ public class CarRepairShopTest {
 
     @Test
     public void car_close_to_repair_shop_should_be_loaded() {
+        SpawnCar.clearActiveCars();
         CarRepairShop testRepairShop = new CarRepairShop();
         
         SpawnCar.addCar("Volvo240");
@@ -14,8 +15,7 @@ public class CarRepairShopTest {
         testRepairShop.setPositionY(Config.CAR_START_POSITION_Y);
         testRepairShop.loadCar();
         
-        
-        assertEquals(testRepairShop.getStorage().size(), 1);
+        assertEquals(1, testRepairShop.getStorage().size());
     }
 
     @Test

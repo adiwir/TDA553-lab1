@@ -7,10 +7,11 @@ public abstract class Car implements Movable{
     private int nrDoors; // Number of doors on the car
     private double enginePower; // Engine power of the car
     private double currentSpeed; // The current speed of the car
-    private double[] position = new double[2]; //The cars position
     private Color color; // Color of the car
     private String modelName; // The car model name
     private Direction dir;
+
+    private HasPosition position;
 
     public enum Direction{
         LEFT,
@@ -24,9 +25,7 @@ public abstract class Car implements Movable{
         this.enginePower = enginePower;
         
         this.currentSpeed = 0;
-
-        this.position[0] = Config.CAR_START_POSITION_X;
-        this.position[1] = Config.CAR_START_POSITION_Y;
+        this.position = new HasPosition(Config.CAR_START_POSITION_X, Config.CAR_START_POSITION_Y);
 
         this.dir = Direction.LEFT; // Start Direction left
         
@@ -104,16 +103,16 @@ public abstract class Car implements Movable{
     public void move() {
         switch (this.dir){
             case LEFT:
-                this.position[0] -= this.currentSpeed;
+                this.position.setX(this.position.getX() - this.currentSpeed);
                 break;
             case DOWN:
-                this.position[1] += this.currentSpeed;
+                this.position.setY(this.position.getY() + this.currentSpeed);
                 break;
             case RIGHT:
-                this.position[0] += this.currentSpeed;
+                this.position.setX(this.position.getX() + this.currentSpeed);
                 break;
             case UP:
-                this.position[1] -= this.currentSpeed;
+                this.position.setY(this.position.getY() - this.currentSpeed);
                 break;
         }
     }
@@ -153,18 +152,18 @@ public abstract class Car implements Movable{
     }
 
     public double getCurrentPositionX(){
-        return this.position[0];
+        return this.position.getX();
     }
 
     public double getCurrentPositionY(){
-        return this.position[1];
+        return this.position.getY();
     }
 
     public void setPositionX(double posX) {
-        this.position[0] = posX;
+        this.position.setX(posX);
     }
 
     public void setPositionY(double posY) {
-        this.position[1] = posY;
+        this.position.setY(posY);
     }
 }
