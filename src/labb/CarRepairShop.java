@@ -17,6 +17,7 @@ public class CarRepairShop {
         this.storage = new HasStorage(maxCars);
         this.position[0] = rand.nextInt(0, 500);
         this.position[1] = rand.nextInt(0, 400);
+        this.loadedCars = storage.getLoadedCars();
     }
 
     public void loadCar() {
@@ -24,9 +25,8 @@ public class CarRepairShop {
     }
 
     public void unloadCar() {
-        loadedCars = storage.getLoadedCars();
-        double newCarPosX = loadedCars.get(loadedCars.size() - 1).getCurrentPositionX();
-        double newCarPosY = loadedCars.get(loadedCars.size() - 1).getCurrentPositionY();
+        double newCarPosX = this.loadedCars.get(this.loadedCars.size() - 1).getCurrentPositionX();
+        double newCarPosY = this.loadedCars.get(this.loadedCars.size() - 1).getCurrentPositionY();
         storage.unloadCar(newCarPosX, newCarPosY);
     }
 
