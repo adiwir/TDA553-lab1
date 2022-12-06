@@ -4,7 +4,7 @@ import java.awt.*;
 
 public class Scania extends Car {
 
-    private HasPlatform platform = new HasPlatform();
+    private HasPlatform platform = new HasPlatform(70);
 
     public Scania() {
         super(4, 100, Color.GREEN, "Scania");
@@ -23,13 +23,13 @@ public class Scania extends Car {
     }
 
     public void raisePlatform() {
-        if (platform.getPlatformAngle() != 70 && this.getCurrentSpeed() == 0) {
-            platform.raisePlatform();
+        if (this.getCurrentSpeed() == 0) {
+            platform.raisePlatform(1);
         }
     }
 
     public void lowerPlatform() {
-        platform.lowerPlatform();        
+        platform.lowerPlatform(1);
     }
 
     public int getPlatformAngle() {

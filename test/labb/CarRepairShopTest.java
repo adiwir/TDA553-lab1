@@ -14,6 +14,7 @@ public class CarRepairShopTest {
         testRepairShop.setPositionY(Config.CAR_START_POSITION_Y);
         testRepairShop.loadCar();
         
+        
         assertEquals(testRepairShop.getStorage().size(), 1);
     }
 

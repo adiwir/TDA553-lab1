@@ -6,7 +6,7 @@ import java.util.List;
 
 public class CarTransporter extends Car {
 
-    private HasPlatform platform = new HasPlatform();
+    private HasPlatform platform = new HasPlatform(1);
     private HasStorage storage;
     private int range;
     private int maxCars;
@@ -32,14 +32,12 @@ public class CarTransporter extends Car {
     }
 
     public void raisePlatform() {
-        if (platform.getPlatformAngle() != 1) {
-            platform.raisePlatform();
-        }
+        platform.raisePlatform(1);
     }
 
     public void lowerPlatform() {
-        if (platform.getPlatformAngle() != 0 && this.getCurrentSpeed() == 0) {
-            platform.lowerPlatform();
+        if (this.getCurrentSpeed() == 0) {
+            platform.lowerPlatform(1);
         }
     }
 
