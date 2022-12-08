@@ -20,13 +20,20 @@ public class CarTransporter extends Car {
     }
 
     @Override
+    public void startEngine() {
+        if (platform.getPlatformAngle() == 1) {
+            setCurrentSpeed(0.1);
+        }
+    }
+
+    @Override
     double speedFactor() {
         return this.getEnginePower() * 0.01;
     }
 
     @Override
     public void gas(double amount) {
-        if (amount <= 1 && amount >= 0 && platform.getPlatformAngle() == 1) {
+        if (platform.getPlatformAngle() == 1) {
             incrementSpeed(amount);
         }
     }

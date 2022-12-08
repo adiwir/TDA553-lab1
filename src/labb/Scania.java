@@ -11,6 +11,13 @@ public class Scania extends Car {
     }
 
     @Override
+    public void startEngine() {
+        if (platform.getPlatformAngle() == 0) {
+            setCurrentSpeed(0.1);
+        }
+    }
+
+    @Override
     double speedFactor() {
         return this.getEnginePower() * 0.01;
     }
