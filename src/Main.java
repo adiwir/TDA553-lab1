@@ -1,11 +1,12 @@
 public class Main {
     public static void main(String []args) {
 
+        SpawnCar spawnCar = SpawnCar.getInstance();
         CarRepairShop testRepairShop = new CarRepairShop();
         
-        SpawnCar.addCar("Volvo240");
-        SpawnCar.addCar("Volvo240");
-        System.out.println(SpawnCar.getActiveCars());
+        spawnCar.addCar("Volvo240");
+        spawnCar.addCar("Volvo240");
+        System.out.println(spawnCar.getActiveCars());
 
         testRepairShop.setPositionX(10);
         testRepairShop.setPositionY(10);

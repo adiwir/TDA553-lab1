@@ -3,10 +3,12 @@ import static org.junit.Assert.*;
 
 public class SpawnCarTest {
 
+    SpawnCar spawnCar = SpawnCar.getInstance();
+
     @Test
     public void create_a_newCar() {
-        SpawnCar.addCar("Volvo240");
+        spawnCar.addCar("Volvo240");
 
-        assertEquals(1, SpawnCar.getActiveCars().size());
+        assertEquals(1, spawnCar.getActiveCars().size());
     }
 }

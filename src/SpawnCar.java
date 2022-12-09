@@ -2,11 +2,7 @@ import java.util.*;
 
 public class SpawnCar {
     private static SpawnCar single_instance = null;
-    private static List<Car> activeCars = new ArrayList<Car>();
-
-    private SpawnCar() {
-
-    }
+    private List<Car> activeCars = new ArrayList<Car>();
 
     public static SpawnCar getInstance() {
         if (single_instance == null) {
@@ -15,7 +11,7 @@ public class SpawnCar {
         return single_instance;
     }
 
-    public static void addCar(String type) {
+    public void addCar(String type) {
         switch (type) {
             case "Volvo240":
                 Car volvo = new Volvo240();
@@ -32,11 +28,11 @@ public class SpawnCar {
         }
     }
     
-    public static List<Car> getActiveCars() {
+    public List<Car> getActiveCars() {
         return activeCars;
     }
 
-    public static void clearActiveCars() {
+    public void clearActiveCars() {
         activeCars.clear();
     }
 }

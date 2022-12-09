@@ -3,12 +3,14 @@ import static org.junit.Assert.*;
 
 public class CarRepairShopTest {
 
+    SpawnCar spawnCar = SpawnCar.getInstance();
+
     @Test
     public void car_close_to_repair_shop_should_be_loaded() {
-        SpawnCar.clearActiveCars();
+        spawnCar.clearActiveCars();
         CarRepairShop testRepairShop = new CarRepairShop();
         
-        SpawnCar.addCar("Volvo240");
+        spawnCar.addCar("Volvo240");
         testRepairShop.setPositionX(Config.CAR_START_POSITION_X);
         testRepairShop.setPositionY(Config.CAR_START_POSITION_Y);
         testRepairShop.loadCar();
