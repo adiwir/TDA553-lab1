@@ -21,8 +21,10 @@ public class CarController {
 
     // The frame that represents this instance View of the MVC pattern
     CarView frame;
-    // A list of cars, modify if needed
-    ArrayList<Car> cars = new ArrayList<>();
+
+    static ArrayList<Car> cars;
+
+    static CarModel cm = new CarModel();
 
     //methods:
 
@@ -30,20 +32,10 @@ public class CarController {
         // Instance of this class
         CarController cc = new CarController();
 
-        cc.cars.add(new Volvo240());
-        cc.cars.get(0).setPositionY(10);
-        cc.cars.get(0).setCurrentDir(Direction.RIGHT);
-
-        cc.cars.add(new Saab95());
-        cc.cars.get(1).setPositionY(210);
-        cc.cars.get(1).setCurrentDir(Direction.RIGHT);
-
-        cc.cars.add(new Scania());
-        cc.cars.get(0).setPositionY(410);
-        cc.cars.get(2).setCurrentDir(Direction.RIGHT);
-
         // Start a new view and send a reference of self
         cc.frame = new CarView("CarSim 1.0", cc);
+
+        cars = cm.getCars();
 
         // Start the timer
         cc.timer.start();
@@ -71,9 +63,7 @@ public class CarController {
 
     // Calls the gas method for each car once
     void gas(int amount) {
-        double gas = ((double) amount) / 100;
-        for (Car car : cars) {
-            car.gas(gas);
-        }
+        double gas = (double) amount / 100;
+        cm.gas(gas);
     }
 }
