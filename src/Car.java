@@ -10,13 +10,6 @@ public abstract class Car implements Movable{
     private Direction dir;
 
     private Position position;
-
-    public enum Direction{
-        LEFT,
-        DOWN, 
-        RIGHT,
-        UP
-    }
     
     public Car(int nrDoors, double enginePower, Color color, String modelName){
         this.nrDoors = nrDoors;

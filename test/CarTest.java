@@ -69,16 +69,16 @@ public class CarTest {
   public void while_Direction_left_turn_left_should_result_in_Direction_down() {
     Car testVolvo = new Volvo240();
     testVolvo.turnLeft();
-    assertEquals(Car.Direction.DOWN, testVolvo.getCurrentDir());
+    assertEquals(Direction.DOWN, testVolvo.getCurrentDir());
   }
 
   
   @Test
   public void while_Direction_down_turn_left_should_result_in_Direction_right() {
     Car testVolvo = new Volvo240();
-    testVolvo.setCurrentDir(Car.Direction.DOWN);
+    testVolvo.setCurrentDir(Direction.DOWN);
     testVolvo.turnLeft();
-    assertEquals(Car.Direction.RIGHT, testVolvo.getCurrentDir());
+    assertEquals(Direction.RIGHT, testVolvo.getCurrentDir());
   }
 
   
@@ -86,20 +86,20 @@ public class CarTest {
   public void while_Direction_right_turn_left_should_result_in_Direction_up() {
     Car testVolvo = new Volvo240();
 
-    testVolvo.setCurrentDir(Car.Direction.RIGHT);
+    testVolvo.setCurrentDir(Direction.RIGHT);
 
     testVolvo.turnLeft();
-    assertEquals(Car.Direction.UP, testVolvo.getCurrentDir());
+    assertEquals(Direction.UP, testVolvo.getCurrentDir());
   }
   
   @Test
   public void while_Direction_up_turn_left_should_result_in_Direction_left() {
     Car testVolvo = new Volvo240();
     
-    testVolvo.setCurrentDir(Car.Direction.UP);
+    testVolvo.setCurrentDir(Direction.UP);
     testVolvo.turnLeft();
     
-    assertEquals(Car.Direction.LEFT, testVolvo.getCurrentDir());
+    assertEquals(Direction.LEFT, testVolvo.getCurrentDir());
   }
   
 
@@ -107,7 +107,7 @@ public class CarTest {
   public void while_Direction_left_turn_right_should_result_in_Direction_up() {
     Car testVovlo = new Volvo240();
     testVovlo.turnRight();
-    assertEquals(Car.Direction.UP, testVovlo.getCurrentDir());
+    assertEquals(Direction.UP, testVovlo.getCurrentDir());
   }
 
   
@@ -115,30 +115,30 @@ public class CarTest {
   public void while_Direction_up_turn_right_should_result_in_Direction_right() {
     Car testSaab = new Saab95();
 
-    testSaab.setCurrentDir(Car.Direction.UP);
+    testSaab.setCurrentDir(Direction.UP);
     testSaab.turnRight();
 
-    assertEquals(Car.Direction.RIGHT, testSaab.getCurrentDir());
+    assertEquals(Direction.RIGHT, testSaab.getCurrentDir());
   }
 
   @Test
   public void while_Direction_right_turn_right_should_result_in_Direction_down() {
     Car testSaab = new Saab95();
 
-    testSaab.setCurrentDir(Car.Direction.RIGHT);
+    testSaab.setCurrentDir(Direction.RIGHT);
     testSaab.turnRight();
 
-    assertEquals(Car.Direction.DOWN, testSaab.getCurrentDir());
+    assertEquals(Direction.DOWN, testSaab.getCurrentDir());
   }
   
   @Test
   public void while_Direction_down_turn_right_should_result_in_Direction_left() {
     Car testVolvo = new Volvo240();
 
-    testVolvo.setCurrentDir(Car.Direction.DOWN);
+    testVolvo.setCurrentDir(Direction.DOWN);
     testVolvo.turnRight();
 
-    assertEquals(Car.Direction.LEFT, testVolvo.getCurrentDir());
+    assertEquals(Direction.LEFT, testVolvo.getCurrentDir());
   } 
 
   @Test
@@ -156,7 +156,7 @@ public class CarTest {
   public void when_moving_up_position_in_the_Yaxis_is_greater_than_ten() {
     Saab95 testSaab = new Saab95();
 
-    testSaab.setCurrentDir(Car.Direction.UP);
+    testSaab.setCurrentDir(Direction.UP);
     testSaab.startEngine();
     testSaab.gas(1);
     testSaab.move();
@@ -168,7 +168,7 @@ public class CarTest {
   public void when_moving_right_position_in_the_Xaxis_is_greater_than_ten() {
     Saab95 testSaab = new Saab95();
 
-    testSaab.setCurrentDir(Car.Direction.RIGHT);
+    testSaab.setCurrentDir(Direction.RIGHT);
     testSaab.startEngine();
     testSaab.gas(1);
     testSaab.move();
@@ -180,7 +180,7 @@ public class CarTest {
   public void when_moving_down_position_in_the_Yaxis_is_not_ten() {
     Saab95 testSaab = new Saab95();
 
-    testSaab.setCurrentDir(Car.Direction.DOWN);
+    testSaab.setCurrentDir(Direction.DOWN);
     testSaab.startEngine();
     testSaab.gas(1);
     testSaab.move();

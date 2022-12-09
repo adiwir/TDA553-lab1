@@ -9,7 +9,4 @@ public class SpawnCarTest {
 
         assertEquals(1, SpawnCar.getActiveCars().size());
     }
-    
-
-    
 }

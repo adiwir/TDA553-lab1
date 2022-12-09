@@ -32,15 +32,15 @@ public class CarController {
 
         cc.cars.add(new Volvo240());
         cc.cars.get(0).setPositionY(10);
-        cc.cars.get(0).setCurrentDir(Car.Direction.RIGHT);
+        cc.cars.get(0).setCurrentDir(Direction.RIGHT);
 
         cc.cars.add(new Saab95());
         cc.cars.get(1).setPositionY(210);
-        cc.cars.get(1).setCurrentDir(Car.Direction.RIGHT);
+        cc.cars.get(1).setCurrentDir(Direction.RIGHT);
 
         cc.cars.add(new Scania());
         cc.cars.get(0).setPositionY(410);
-        cc.cars.get(2).setCurrentDir(Car.Direction.RIGHT);
+        cc.cars.get(2).setCurrentDir(Direction.RIGHT);
 
         // Start a new view and send a reference of self
         cc.frame = new CarView("CarSim 1.0", cc);
