@@ -1,11 +1,9 @@
-package labb;
-
-public class HasPlatform {
+public class Platform {
 
     private int platformAngle;
     private int maxAngle;
 
-    public HasPlatform(int maxAngle) {
+    public Platform(int maxAngle) {
         this.platformAngle = 0;
         this.maxAngle = maxAngle;
     }

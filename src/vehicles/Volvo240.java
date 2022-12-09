@@ -1,10 +1,8 @@
-package labb;
-
 import java.awt.*;
 
 public class Volvo240 extends Car{
 
-    private HasTrim trim = new HasTrim(1.25);
+    private Trim trim = new Trim(1.25);
 
     public Volvo240() {
         super(4, 100, Color.black, "Volvo240");

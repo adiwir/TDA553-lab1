@@ -1,10 +1,8 @@
-package labb;
-
-public class HasTurbo {
+public class Turbo {
     
     private boolean turboOn;
 
-    public HasTurbo() {
+    public Turbo() {
         this.turboOn = false;
     }
 

@@ -1,5 +1,3 @@
-package labb;
-
 import java.awt.*;
 
 public abstract class Car implements Movable{
@@ -11,7 +9,7 @@ public abstract class Car implements Movable{
     private String modelName; // The car model name
     private Direction dir;
 
-    private HasPosition position;
+    private Position position;
 
     public enum Direction{
         LEFT,
@@ -25,7 +23,7 @@ public abstract class Car implements Movable{
         this.enginePower = enginePower;
         
         this.currentSpeed = 0;
-        this.position = new HasPosition(Config.CAR_START_POSITION_X, Config.CAR_START_POSITION_Y);
+        this.position = new Position(Config.CAR_START_POSITION_X, Config.CAR_START_POSITION_Y);
 
         this.dir = Direction.LEFT; // Start Direction left
         

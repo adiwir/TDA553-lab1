@@ -1,10 +1,8 @@
-package labb;
-
-public class HasTrim {
+public class Trim {
     
     private final double trimFactor;
 
-    public HasTrim(double trimFactor) {
+    public Trim(double trimFactor) {
         this.trimFactor = trimFactor;
     }
 

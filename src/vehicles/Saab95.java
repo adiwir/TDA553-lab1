@@ -1,10 +1,8 @@
-package labb;
-
 import java.awt.*;
 
 public class Saab95 extends Car{
 
-    private HasTurbo turbo = new HasTurbo();
+    private Turbo turbo = new Turbo();
     
     public Saab95() {
         super(2, 125, Color.red, "Saab95");

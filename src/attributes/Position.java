@@ -1,11 +1,9 @@
-package labb;
-
-public class HasPosition {
+public class Position {
     
     private double x;
     private double y;
 
-    public HasPosition(double x, double y) {
+    public Position(double x, double y) {
         this.x = x;
         this.y = y;
     }

@@ -1,10 +1,8 @@
-package labb;
-
 import java.awt.*;
 
 public class Scania extends Car {
 
-    private HasPlatform platform = new HasPlatform(70);
+    private Platform platform = new Platform(70);
 
     public Scania() {
         super(4, 100, Color.GREEN, "Scania");

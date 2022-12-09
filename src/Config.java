@@ -1,5 +1,3 @@
-package labb;
-
 public class Config {
 
     static final int CAR_START_POSITION_X = 10;

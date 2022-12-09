@@ -1,5 +1,3 @@
-package labb;
-
 interface Movable {
     void move();
     

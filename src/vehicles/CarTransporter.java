@@ -1,13 +1,11 @@
-package labb;
-
 import java.awt.*;
 import java.util.Random;
 import java.util.List;
 
 public class CarTransporter extends Car {
 
-    private HasPlatform platform = new HasPlatform(1);
-    private HasStorage storage;
+    private Platform platform = new Platform(1);
+    private Storage storage;
     private int range;
     private int maxCars;
     private Random random = new Random();
@@ -16,7 +14,7 @@ public class CarTransporter extends Car {
         super(2, 100, Color.BLACK, "Transporter");
         maxCars = Config.STORAGE_MAX_CARS;        
         range = Config.RANGE;
-        storage = new HasStorage(maxCars);
+        storage = new Storage(maxCars);
     }
 
     @Override

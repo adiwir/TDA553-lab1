@@ -1,14 +1,12 @@
-package labb;
-
 import java.util.*;
 
-public class HasStorage {
+public class Storage {
 
     private int maxCars;
     private ArrayList<Car> loadedCars;
     private int range;
 
-    public HasStorage(int maxCars) {
+    public Storage(int maxCars) {
         this.maxCars = maxCars;
         this.loadedCars = new ArrayList<Car>();
         this.range = Config.RANGE;

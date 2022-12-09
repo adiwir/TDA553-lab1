@@ -1,5 +1,3 @@
-package labb;
-
 import java.util.*;
 
 public class SpawnCar {

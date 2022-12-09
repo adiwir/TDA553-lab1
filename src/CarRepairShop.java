@@ -1,5 +1,3 @@
-package labb;
-
 import java.util.List;
 import java.util.Random;
 
@@ -9,13 +7,13 @@ public class CarRepairShop {
     private int maxCars;
     private List<Car> loadedCars;
 
-    private HasPosition position;
-    private HasStorage storage;
+    private Position position;
+    private Storage storage;
 
     public CarRepairShop() {
         this.maxCars = rand.nextInt(4, 20);
-        this.storage = new HasStorage(maxCars);
-        this.position = new HasPosition(rand.nextInt(0, 500), rand.nextInt(0, 400));
+        this.storage = new Storage(maxCars);
+        this.position = new Position(rand.nextInt(0, 500), rand.nextInt(0, 400));
         this.loadedCars = storage.getLoadedCars();
     }
 
