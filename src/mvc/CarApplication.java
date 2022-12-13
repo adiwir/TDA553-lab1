@@ -17,39 +17,41 @@ public class CarApplication {
     private static final int Y = 800;
 
     // The delay (ms) corresponds to 20 updates a sec (hz)
-    private final int delay = 50;
+    static private final int delay = 50;
     // The timer is started with an listener (see below) that executes the statements
     // each step between delays.
-    private Timer timer = new Timer(delay, new TimerListener());
+    static private Timer timer = new Timer(delay, new TimerListener());
 
     // The frame that represents this instance View of the MVC pattern
-    CarController frame;
-
-    static ArrayList<Car> cars;
+    static CarView frame;
 
     static CarModel cm = new CarModel();
+    static CarController cc = new CarController();
+
+    static ArrayList<Car> cars;
 
     //methods:
 
     public static void main(String[] args) {
-        // Instance of this class
-        CarApplication ca = new CarApplication();
-
-        CarView cv = new CarView(X, Y-240);
+        CarPanel panel = new CarPanel(X, Y-240);
 
         // Start a new view and send a reference of self
-        ca.frame = new CarController("CarSim 1.0", cv, cm);
+        frame = new CarView("CarSim 1.0", panel);
+
+        // Adding listeners for objects in CarView
+        cc.addGasSpinnerListener(frame.gasSpinner);
+        cc.addGasButtonListener(frame.gasButton, cm);
 
         cars = cm.getCars();
 
         // Start the timer
-        ca.timer.start();
+        timer.start();
     }
 
     /* Each step the TimerListener moves all the cars in the list and tells the
     * view to update its images. Change this method to your needs.
     * */
-    private class TimerListener implements ActionListener {
+    static private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             
             for (Car car : cars) {
@@ -59,9 +61,9 @@ public class CarApplication {
                 int x = (int) Math.round(car.getCurrentPositionX());
                 int y = (int) Math.round(car.getCurrentPositionY());
                 
-                frame.cv.moveit(car, x, y);
+                frame.panel.moveit(car, x, y);
                 // repaint() calls the paintComponent method of the panel
-                frame.cv.repaint();
+                frame.panel.repaint();
             }
         }
     }

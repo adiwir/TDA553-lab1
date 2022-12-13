@@ -5,9 +5,6 @@ public class CarModel extends Car{
 
     private ArrayList<Car> cars = new ArrayList<Car>();
 
-    private final int X = 800;
-    private final int Y = 800;
-
     public CarModel() {
         super(0, 0, Color.BLACK, "");
         createCars();
@@ -43,13 +40,5 @@ public class CarModel extends Car{
             double gas = (double) amount / 100;
             car.gas(gas);
         }
-    }
-
-    public int getScreenX() {
-        return this.X;
-    }
-
-    public int getScreenY() {
-        return this.Y;
     }
 }
